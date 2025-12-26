@@ -322,6 +322,7 @@ vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope grep_string<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<C-b>', ':Telescope buffers<CR>', noremap)
 
 vim.api.nvim_set_keymap('n', '<Leader>d', ':lua vim.diagnostic.open_float(0, { scope = "line" })<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<Leader>p', ':lua vim.lsp.buf.hover()<CR>', noremap)
 
 -- autocomplete on tab
 vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', noremap)
