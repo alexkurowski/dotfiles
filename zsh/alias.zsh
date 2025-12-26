@@ -38,31 +38,13 @@ alias phx-reset="mix ecto.drop && mix ecto.create && mix ecto.migrate && mix run
 alias openfl="haxelib run openfl"
 alias fl="openfl"
 
-alias kihi-vps="ssh deploy@107.150.29.131"
-
 alias be="bundle exec"
 
 alias firefox-dev="~/bin/firefox/firefox"
 
 alias tmux="tmux -2"
-alias tmux-stream="tmux -2 new-session -A -s stream"
 
-alias vimn="vim '+NERDTree'"
-alias vims="vim -u ~/.vimrc-crt"
 alias nvimn="nvim '+NvimTreeOpen'"
-
-alias wine32="WINEARCH=win32 WINEPREFIX=~/.wine32 wine"
-
-alias winsteam="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-dwrite"
-alias winsteam32="WINEARCH=win32 WINEPREFIX=~/.wine32 winsteam"
-alias battlenet="wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Blizzard\ App/Battle.net\ Launcher.exe"
-
-alias sfml="./g++"
-
-alias fuck='$(thefuck $(fc -ln -1))'
-alias FUCK=fuck
-
-alias gopen=gnome-open
 
 alias mk=make
 
@@ -78,16 +60,10 @@ alias grepi="grep -r internal -E -e"
 
 alias sedhere="find . -type f -print0 | xargs -0 sed"
 
-alias ued="/opt/Unity/Editor/Unity"
-
 alias pdoc="pandoc -t plain"
-
-alias php56="/usr/local/opt/php@5.6/bin/php"
 
 alias sbcl="rlwrap sbcl"
 alias urn="lua /Users/mapi/Projects/lua/urn/bin/urn.lua"
-
-alias todo="nvim ~/Documents/todo.md"
 
 alias k8s="kubectl"
 
