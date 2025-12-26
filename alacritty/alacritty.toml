@@ -1,0 +1,90 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11.0
+normal = { family = "Maple Mono NF", style = "Regular" }
+offset = { x = 0, y = -6 }
+glyph_offset = { x = 0, y = -4 }
+
+[[keyboard.bindings]]
+chars = "`1"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`2"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`3"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`4"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`5"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`6"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`7"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`8"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "`9"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Left"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "Right"
+mode = "AppCursor"
+mods = "Command"
+
+[terminal.shell]
+args = ["-l", "-c", "tmux new-session -A -s mapi"]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+startup_mode = "Maximized"
+title = "Terminal"
+dynamic_title = true
+
+[general]
+import = ["/Users/mapi/.config/alacritty/themes/base16-ayu-dark.toml"]
+
+[terminal]

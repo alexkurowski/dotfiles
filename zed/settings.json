@@ -1,0 +1,72 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "active_pane_modifiers": {
+    "border_size": 0.0,
+  },
+  "window_decorations": "client",
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enabled": true,
+  },
+  "tabs": {
+    "git_status": false,
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_onboarding_banner": false,
+    "show_project_items": true,
+    "show_branch_name": true,
+    "show_branch_icon": false,
+    "show_user_picture": false,
+  },
+  "terminal": {
+    "button": true,
+  },
+  "show_wrap_guides": true,
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
+  "buffer_line_height": {
+    "custom": 1.100000023841858
+  },
+  "vim_mode": true,
+  "project_panel": {
+    "button": true,
+    "auto_reveal_entries": false,
+  },
+  "base_keymap": "VSCode",
+  "tab_bar": {
+    "show_tab_bar_buttons": true,
+    "show_nav_history_buttons": true,
+    "show": false,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "buffer_font_weight": 400.0,
+  "buffer_font_fallbacks": [
+    "SauceCodePro Nerd Font Mono",
+    "Menlo",
+    "Monaco",
+  ],
+  "buffer_font_family": "Maple Mono NF",
+  "file_types": {
+    "teal": ["*.tl"],
+  },
+  "show_whitespaces": "boundary",
+  "ensure_final_newline_on_save": true,
+  "tab_size": 2,
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 14.0,
+  "buffer_font_size": 11.0,
+  "theme": "Gruvbox Light Soft",
+}

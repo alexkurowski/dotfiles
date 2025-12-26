@@ -1,0 +1,424 @@
+{
+    "vim.neovimPath": "/opt/homebrew/bin/nvim",
+    "workbench.settings.applyToAllProfiles": [
+        "vim.neovimPath",
+        "vim.neovimUseConfigFile",
+        "vim.neovimConfigPath",
+        "vim.vimrc.enable",
+        "vim.enableNeovim"
+    ],
+    "vim.neovimUseConfigFile": true,
+    "vim.neovimConfigPath": "/Users/mapi/.config/nvim/init.vim",
+    "vim.vimrc.enable": true,
+    "vim.enableNeovim": true,
+    "git.openRepositoryInParentFolders": "always",
+    "vim.leader": "<space>",
+    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "boundary",
+    "vim.camelCaseMotion.enable": true,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "h"
+            ],
+            "commands": [
+                "cursorLeft"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "commands": [
+                "cursorDown"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "commands": [
+                "cursorUp"
+            ]
+        },
+        {
+            "before": [
+                "l"
+            ],
+            "commands": [
+                "cursorRight"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "}"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "after": [
+                "{"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "j"
+            ],
+            "after": [
+                "V",
+                "j",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "k"
+            ],
+            "after": [
+                "V",
+                "k",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "j"
+            ],
+            "after": [
+                "V",
+                "j",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "k"
+            ],
+            "after": [
+                "V",
+                "k",
+                "y"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<C-o>"
+            ],
+            "commands": [
+                "workbench.files.action.showActiveFileInExplorer"
+            ]
+        },
+        {
+            "before": [
+                "<C-b>"
+            ],
+            "commands": [
+                "workbench.files.action.focusOpenEditorsView"
+            ]
+        },
+        {
+            "before": [
+                "<C-g>"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<C-p>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        },
+        {
+            "before": [
+                "<C-q>"
+            ],
+            "commands": [
+                "editor.action.moveSelectionToNextFindMatch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "editor.action.selectHighlights"
+            ]
+        },
+        {
+            "before": [
+                "<backspace>",
+            ],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
+        },
+        {
+            "before": [
+                "<S-backspace>",
+            ],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                "<C-h>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "j"
+            ],
+            "commands": [
+                "<C-j>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "<C-k>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l"
+            ],
+            "commands": [
+                "<C-l>"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.splitEditorLeft"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "j"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.splitEditorUp"
+            ]
+        },
+        {
+            "before": [
+                "<C-w>",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.splitEditorRight"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "editor.action.selectHighlights"
+            ]
+        },
+        {
+            "before": [
+                "<C-x>"
+            ],
+            "commands": [
+                "editor.action.moveSelectionToNextFindMatch"
+            ]
+        },
+    ],
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.accessibilitySupport": "off",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "luahelper.format.continuation_indent_width": 2,
+    "editor.tabSize": 2,
+    "luahelper.format.tab_width": 2,
+    "luahelper.format.indent_width": 2,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "zenMode.hideStatusBar": false,
+    "workbench.tree.indent": 16,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "terminal.external.osxExec": "/opt/homebrew/bin/alacritty",
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.editor.showTabs": "none",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "workbench.activityBar.location": "hidden",
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "fileHistory": true,
+        "repositories": true,
+        "searchAndCompare": false,
+        "launchpad": false
+    },
+    "json.schemas": [],
+    "explorer.autoReveal": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "files.associations": {
+        "*.tl": "teal"
+    },
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "update.showReleaseNotes": false,
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "editor.minimap.enabled": false,
+    "rainbow_csv.virtual_alignment_mode": "always",
+    "[csv]": {
+        "editor.inlayHints.maximumLength": 0
+    },
+    "ruby.rubocop.suppressRubocopWarnings": true,
+    "editor.fontFamily": "Iosevka Nerd Font Mono-, SauceCodePro Nerd Font Mono-, Menlo-, Maple Mono, Monaco-, FiraCode Nerd Font-, monospace",
+    "editor.fontWeight": 400,
+    "editor.fontSize": 11,
+    "editor.lineHeight": 12,
+    "editor.fontLigatures": false,
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "window.commandCenter": false,
+    "chat.commandCenter.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "zenMode.showTabs": "none",
+    "workbench.colorTheme": "Gruvbox Dark Soft",
+    "catppuccin.accentColor": "lavender",
+    "workbench.colorCustomizations": {
+        "[Catppuccin Mocha]": {
+            "editor.background": "#181824",
+            "editorGutter.background": "#181824",
+        },
+        "editor.foreground": "#ffffff"
+    },
+    "editor.tokenColorCustomizations": {
+        "variables": "#eeeadc",
+    }
+}
