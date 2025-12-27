@@ -39,6 +39,7 @@ require("lazy").setup({
   'nvim-treesitter/nvim-treesitter',
   'RRethy/nvim-treesitter-endwise',
   'nvim-tree/nvim-tree.lua', -- file explorer
+  'chentoast/marks.nvim',
 
   -- colorschemes
   'RRethy/base16-nvim',
@@ -211,6 +212,14 @@ require('trim').setup({})
 
 vim.g.copilot_node_command = '/Users/mapi/.nvm/versions/node/v24.11.1/bin/node'
 
+require('marks').setup({})
+vim.api.nvim_create_autocmd("VimEnter", {
+  -- Disable marks signs by default
+  callback = function()
+    vim.cmd("MarksToggleSigns")
+  end,
+})
+
 --- Settings
 
 vim.opt.ruler = true
@@ -247,7 +256,8 @@ vim.opt.background = "dark"
 
 vim.opt.shell = '/bin/bash'
 
-vim.cmd.colorscheme 'base16-ayu-dark'
+-- vim.cmd.colorscheme 'base16-da-one-ocean'
+vim.cmd.colorscheme 'base16-gruvbox-material-dark-hard'
 
 --- Keybindings
 
@@ -271,11 +281,6 @@ vim.api.nvim_set_keymap('v', 'L', 'g_', noremap)
 
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', noremap)
 vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', noremap)
-
-vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', remap)
-vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', remap)
-vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', remap)
-vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', remap)
 
 vim.api.nvim_set_keymap('n', 'U', '<C-r>', noremap)
 vim.api.nvim_set_keymap('n', 'Y', 'y$', noremap)
@@ -306,34 +311,50 @@ vim.api.nvim_set_keymap('n', '<C-w>j', '<C-w>s<C-w>j', noremap)
 vim.api.nvim_set_keymap('n', '<C-w>k', '<C-w>s', noremap)
 vim.api.nvim_set_keymap('n', '<C-w>l', '<C-w>v<C-w>l', noremap)
 
+-- bookmarks fns
+vim.api.nvim_set_keymap('n', 'mm', ':MarksToggleSigns<CR>', noremap)
+
+-- leader fns
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Format<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<Leader>p', ':Format<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<C-v>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gitsigns blame_line<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<Leader>t', ':terminal<CR>', noremap)
+-- vim.api.nvim_set_keymap('n', '<Leader>t', ':terminal<CR>', noremap)
 
+-- switch tab size
 vim.api.nvim_set_keymap('n', '<Leader>t2', ':set ts=2 sw=2 sts=2<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>t4', ':set ts=4 sw=4 sts=4<CR>', noremap)
 
+-- show current file in nvim-tree explorer
 vim.api.nvim_set_keymap('n', '<C-o>', ':NvimTreeFindFile<CR>', noremap)
+
+-- telescope fuzzy search
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope grep_string<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<Leader>g', ':lua require("telescope.builtin").current_buffer_fuzzy_find({ default_text = "## " })<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<C-g>', ':Telescope live_grep<CR>', noremap)
+vim.api.nvim_set_keymap('n', '<Leader>]', ':Telescope grep_string<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<C-b>', ':Telescope buffers<CR>', noremap)
 
-vim.api.nvim_set_keymap('n', '<Leader>d', ':lua vim.diagnostic.open_float(0, { scope = "line" })<CR>', noremap)
+-- hover float
 vim.api.nvim_set_keymap('n', '<Leader>p', ':lua vim.lsp.buf.hover()<CR>', noremap)
-
--- autocomplete on tab
-vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', noremap)
-vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-p>', noremap)
+vim.api.nvim_set_keymap('n', '<Leader>d', ':lua vim.diagnostic.open_float(0, { scope = "line" })<CR>', noremap)
 
 -- typescript lsp
 vim.api.nvim_set_keymap('n', '<Leader>tg', ':TSToolsGoToSourceDefinition<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>ti', ':TSToolsAddMissingImports<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>tc', ':TSToolsOrganizeImports<CR>', noremap)
 
--- visual fns
+-- insert mode
+---- movements
+vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', remap)
+vim.api.nvim_set_keymap('i', '<C-j>', '<Down>', remap)
+vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', remap)
+vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', remap)
+---- autocomplete on tab
+vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', noremap)
+vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-p>', noremap)
+
+-- visual mode
 vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', noremap)
 vim.api.nvim_set_keymap('v', '<Leader>s', ':sort<CR>', noremap)
 vim.api.nvim_set_keymap('v', '<Leader>.', ':normal .<CR>', noremap)

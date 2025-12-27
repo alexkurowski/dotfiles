@@ -3,9 +3,12 @@ TERM = "xterm-256color"
 
 [font]
 size = 11.0
-normal = { family = "Maple Mono NF", style = "Regular" }
+normal = { family = "Maple Mono NF", style = "Light" }
 offset = { x = 0, y = -6 }
 glyph_offset = { x = 0, y = -4 }
+
+bold = { style = "Medium" }
+# italic = { style = "Regular" }
 
 [[keyboard.bindings]]
 chars = "`1"
@@ -85,6 +88,7 @@ title = "Terminal"
 dynamic_title = true
 
 [general]
-import = ["/Users/mapi/.config/alacritty/themes/base16-ayu-dark.toml"]
+# import = ["/Users/mapi/.config/alacritty/themes/base16-da-one-ocean.toml"]
+import = ["/Users/mapi/.config/alacritty/themes/base16-gruvbox-material-dark-hard.toml"]
 
 [terminal]
