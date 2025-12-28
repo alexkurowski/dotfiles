@@ -89,6 +89,7 @@ dynamic_title = true
 
 [general]
 # import = ["/Users/mapi/.config/alacritty/themes/base16-da-one-ocean.toml"]
-import = ["/Users/mapi/.config/alacritty/themes/base16-gruvbox-material-dark-hard.toml"]
+# import = ["/Users/mapi/.config/alacritty/themes/base16-gruvbox-material-dark-hard.toml"]
+import = ["/Users/mapi/.config/alacritty/themes/base16-gruvbox-material-dark-soft.toml"]
 
 [terminal]

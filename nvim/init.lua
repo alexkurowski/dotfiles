@@ -41,6 +41,11 @@ require("lazy").setup({
   'nvim-tree/nvim-tree.lua', -- file explorer
   'chentoast/marks.nvim',
 
+  -- completion
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/nvim-cmp',
+
   -- colorschemes
   'RRethy/base16-nvim',
 })
@@ -166,6 +171,8 @@ require("formatter").setup({
     ruby = { require('formatter.filetypes.ruby').rubocop },
     rust = { require('formatter.filetypes.rust').rustfmt },
     go = { require('formatter.filetypes.go').gofmt },
+    c = { require('formatter.defaults.clangformat') },
+    cpp = { require('formatter.defaults.clangformat') },
     odin = {
       function()
         return {
@@ -220,6 +227,27 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
+local cmp = require('cmp')
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-c>'] = cmp.mapping.complete(),
+    ['<C-q>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
 --- Settings
 
 vim.opt.ruler = true
@@ -257,7 +285,8 @@ vim.opt.background = "dark"
 vim.opt.shell = '/bin/bash'
 
 -- vim.cmd.colorscheme 'base16-da-one-ocean'
-vim.cmd.colorscheme 'base16-gruvbox-material-dark-hard'
+-- vim.cmd.colorscheme 'base16-gruvbox-material-dark-hard'
+vim.cmd.colorscheme 'base16-gruvbox-material-dark-soft'
 
 --- Keybindings
 
@@ -317,7 +346,7 @@ vim.api.nvim_set_keymap('n', 'mm', ':MarksToggleSigns<CR>', noremap)
 -- leader fns
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Format<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', noremap)
-vim.api.nvim_set_keymap('n', '<Leader><Leader>', '<C-v>', noremap)
+vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':lua vim.lsp.buf.hover()<CR>', noremap)
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gitsigns blame_line<CR>', noremap)
 -- vim.api.nvim_set_keymap('n', '<Leader>t', ':terminal<CR>', noremap)
 
@@ -352,7 +381,7 @@ vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', remap)
 vim.api.nvim_set_keymap('i', '<C-l>', '<Right>', remap)
 ---- autocomplete on tab
 vim.api.nvim_set_keymap('i', '<Tab>', '<C-n>', noremap)
-vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-p>', noremap)
+vim.api.nvim_set_keymap('i', '<S-Tab>', '<Tab>', noremap)
 
 -- visual mode
 vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', noremap)
