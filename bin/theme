@@ -1,0 +1,89 @@
+#!/usr/bin/ruby
+
+ALACRITTY_CONFIG = "/Users/xor/.config/alacritty/alacritty.toml"
+NVIM_CONFIG = "/Users/xor/.config/nvim/init.lua"
+THEMES_FOLDER = "/Users/xor/.config/alacritty/themes"
+
+available_themes = Dir[THEMES_FOLDER + "/*"]
+available_themes.select! do |path|
+  name = path.split("/").last
+  name.start_with?("base16-") && name.end_with?(".toml") && !name.end_with?("-256.toml")
+end
+available_themes.sort!
+
+i = ARGV[0]
+
+if ['list', 'l', 'ls'].include? i
+  names = available_themes.map do |path|
+    path.split("/")
+        .last
+        .sub("base16-", "")
+        .sub(".toml", "")
+  end
+  names.sort!
+
+  # Calculate column width based on longest name + padding
+  max_length = names.max_by(&:length).length
+  col_width = max_length + 4  # Add padding for spacing between columns
+
+  # Determine terminal width and number of columns
+  term_width = $stdout.isatty ? `tput cols`.to_i : 80
+  num_cols = [1, (term_width / col_width).floor].max
+
+  # Print in columns
+  names.each_with_index do |name, idx|
+    printf "%-#{col_width}s", name
+    puts if (idx + 1) % num_cols == 0
+  end
+  puts if names.length % num_cols != 0  # Print final newline if needed
+
+  exit 0
+end
+
+if ['next', 'n', 'prev', 'p'].include? i
+  # Get current theme from config
+  cfg = File.read ALACRITTY_CONFIG
+  cfg_line = cfg.lines.find do |line|
+    line.start_with?("import = [") && line.include?("/alacritty/themes/")
+  end
+  raise "Unable to read current theme from alacritty config" if cfg_line.nil?
+
+  current_theme = cfg_line.match(/import = \["([^"]+)"\]/)[1]
+  current_index = available_themes.index(current_theme)
+  raise "Current theme not found in available themes" if current_index.nil?
+
+  is_next = i.start_with? 'n'
+  next_index = (current_index + (is_next ? 1 : -1)) % available_themes.length
+
+  theme = available_themes[next_index]
+  puts theme.split("/").last.sub("base16-", "").sub(".toml", "")
+else
+  variants = [
+    i,
+    "#{i}.toml",
+    "base16-#{i}.toml",
+  ]
+
+  theme = available_themes.find do |path|
+    name = path.split("/").last
+    variants.include? name
+  end
+  raise "Unknown theme #{i}" if theme.nil?
+end
+
+# Update alacritty
+cfg = File.read ALACRITTY_CONFIG
+cfg_line = cfg.lines.find do |line|
+  line.start_with?("import = [") && line.include?("/alacritty/themes/")
+end
+raise "Unable to update alacritty config" if cfg_line.nil?
+File.write ALACRITTY_CONFIG, cfg.sub(cfg_line, "import = [\"#{theme}\"]\n")
+
+# Update nvim
+cfg = File.read NVIM_CONFIG
+cfg_line = cfg.lines.find do |line|
+  line.start_with?("vim.cmd.colorscheme")
+end
+raise "Unable to update neovim config" if cfg_line.nil?
+theme_name = theme.split("/").last.sub(".toml", '')
+File.write NVIM_CONFIG, cfg.sub(cfg_line, "vim.cmd.colorscheme '#{theme_name}'\n")
